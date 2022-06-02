@@ -83,7 +83,7 @@ class GeneralInfo extends Component {
 		});
 	}
 	websiteOnChange(e) {
-		const websiteInput = e.target.value;
+		const websiteInput= e.target.value;
 		this.setState({
 			info: {
 				email: this.state.info.email,

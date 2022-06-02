@@ -4,6 +4,7 @@
 	padding-left: 30px;
 	padding-right: 30px;
 	flex-grow: 2;
+	position: relative;
 }
 .education-item{
 	display: grid;
@@ -14,4 +15,5 @@
 	gap: 10px;
 	border-left: solid 1px green;
 	padding: 10px;
+	position: relative;
 }
