@@ -1,0 +1,24 @@
+/* GENERALINFO COMPONENT */
+.general-info {
+	grid-row: 1/-1;
+	background-color: rgba(37, 62, 58, 255, 0.5);
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.avatar {
+	width: 170px;
+	height: 170px;
+	border-radius: 50%;
+	margin-bottom: 60px;
+}
+
+hr {
+	border: solid black 1px;
+	box-shadow: none;
+}
+.title {
+	font-size: 1.3em;
+	border-bottom: 1px white solid;
+}

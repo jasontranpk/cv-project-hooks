@@ -1,0 +1,27 @@
+/* EXPERIENCE COMPONENT */
+.experience {
+	padding-left: 30px;
+	padding-right: 30px;
+	flex-grow: 3;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+.experience-item{
+	display: grid;
+	grid-template-columns: 2fr 3fr;
+	grid-template-rows: 1fr 1fr;
+	margin-top: 30px;
+	margin-bottom: 60px;
+	gap: 10px;
+	border-left: solid 1px green;
+	padding: 10px;
+}
+.experience-item div{
+	margin-bottom: 15px;
+}
+.role{
+	grid-column: 1/ -1;
+}
+.desc{
+	grid-column: 1/ -1;
+	text-align: justify;
+}

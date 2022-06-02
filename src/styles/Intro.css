@@ -1,0 +1,15 @@
+/* INTRO COMPONENT */
+.intro {
+	padding: 30px;
+	background-color: rgba(0, 0, 0, 0.3);
+	min-height: 200px;
+}
+.name{
+	font-size: 2em;
+}
+.position{
+	font-size: 1.5em;
+}
+.brief-intro{
+	text-align: justify;
+}
