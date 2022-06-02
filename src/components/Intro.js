@@ -1,9 +1,9 @@
 import { Component } from 'react';
-import '../styles/Intro.css'
+import '../styles/Intro.css';
 class Intro extends Component {
 	render() {
-		return (
-			<div className='intro top'>
+		const defaultView = (
+			<div>
 				<p className='name'>Jason Tran</p>
 				<p className='position'>Full-stack Web Developer</p>
 				<p className='brief-intro'>
@@ -16,6 +16,7 @@ class Intro extends Component {
 				</p>
 			</div>
 		);
+		return <div className='intro top'>{defaultView}</div>;
 	}
 }
 

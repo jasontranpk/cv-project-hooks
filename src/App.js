@@ -2,6 +2,7 @@ import Education from './components/Education';
 import GeneralInfo from './components/GeneralInfo';
 import Intro from './components/Intro';
 import Experience from './components/Experience';
+import './styles/App.css';
 
 function App() {
 	return (
