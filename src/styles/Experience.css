@@ -2,8 +2,9 @@
 .experience {
 	padding-left: 30px;
 	padding-right: 30px;
-	flex-grow: 3;
+	flex-grow: 2;
 	background-color: rgba(0, 0, 0, 0.3);
+	position: relative;
 }
 .experience-item{
 	display: grid;
@@ -14,6 +15,7 @@
 	gap: 10px;
 	border-left: solid 1px green;
 	padding: 10px;
+	position: relative;
 }
 .experience-item div{
 	margin-bottom: 15px;

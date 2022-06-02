@@ -79,8 +79,7 @@ class Education extends Component {
 		});
 	}
 	deleteBtnClicked(e) {
-		const index =
-		e.target.parentElement.getAttribute('data-index');
+		const index = e.target.parentElement.getAttribute('data-index');
 		console.log(index);
 		let educationArrClone = [...this.state.educationArray];
 		educationArrClone.splice(index, 1);

@@ -6,7 +6,7 @@
 	flex-grow: 2;
 	position: relative;
 }
-.education-item{
+.education-item {
 	display: grid;
 	grid-template-columns: 2fr 3fr;
 	grid-template-rows: 1fr 1fr;
@@ -15,5 +15,4 @@
 	gap: 10px;
 	border-left: solid 1px green;
 	padding: 10px;
-	position: relative;
 }
