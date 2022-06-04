@@ -3,12 +3,6 @@ import '../styles/Experience.css';
 
 function Experience() {
 	const [editMode, setEditMode] = useState(false);
-	const [experienceItem, setExperienceItem] = useState({
-		year: '',
-		school: '',
-		major: '',
-		GPA: '',
-	});
 	const [experienceArray, setExperienceArray] = useState([
 		{
 			year: '2019-2022',
