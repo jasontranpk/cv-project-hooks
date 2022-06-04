@@ -1,27 +1,15 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import '../styles/Intro.css';
-class Intro extends Component {
-	constructor(props) {
-		super(props);
-		this.editBtnClicked = this.editBtnClicked.bind(this);
-		this.editBtnClicked = this.editBtnClicked.bind(this);
-		this.applyBtnClicked = this.applyBtnClicked.bind(this);
-		this.btnHover = this.btnHover.bind(this);
-		this.btnMouseLeave = this.btnMouseLeave.bind(this);
-		this.nameOnChange = this.nameOnChange.bind(this);
-		this.positionOnChange = this.positionOnChange.bind(this);
-		this.introOnChange = this.introOnChange.bind(this);
-		this.state = {
-			info: {
-				name: 'Jason Tran',
-				position: 'Full-stack Web Developer',
-				intro: 'Excepteur ea proident proident veniam quis ipsum id id eu aliqua elit esse nisi amet. Sint laboris consectetur est non nostrud deserunt excepteur eu labore ipsum. Incididunt ex ad amet adipisicing ea amet ex nostrud exercitation esse sit do. Ipsum voluptate anim velit sit nisi mollit cillum fugiat enim fugiat nostrud aliqua sunt.',
-			},
-			edit: false,
-		};
-	}
-	btnHover() {
-		if (this.state.edit) {
+
+function Intro() {
+	const [info, setInfo] = useState({
+		name: 'Jason Tran',
+		position: 'Full-stack Web Developer',
+		intro: 'Excepteur ea proident proident veniam quis ipsum id id eu aliqua elit esse nisi amet. Sint laboris consectetur est non nostrud deserunt excepteur eu labore ipsum. Incididunt ex ad amet adipisicing ea amet ex nostrud exercitation esse sit do. Ipsum voluptate anim velit sit nisi mollit cillum fugiat enim fugiat nostrud aliqua sunt.',
+	});
+	const [editMode, setEditMode] = useState();
+	function btnHover() {
+		if (editMode) {
 			const applyBtn = document.querySelector('#intro-apply-btn');
 			applyBtn.style.display = 'block';
 		} else {
@@ -29,110 +17,88 @@ class Intro extends Component {
 			editBtn.style.display = 'block';
 		}
 	}
-	btnMouseLeave() {
-		if (!this.state.edit) {
+	function btnMouseLeave() {
+		if (!editMode) {
 			const editBtn = document.querySelector('#intro-edit-btn');
 			editBtn.style.display = 'none';
 		}
 	}
-	editBtnClicked(e) {
-		this.setState({
-			edit: true,
-		});
-	}
-	applyBtnClicked(e) {
-		this.setState({
-			edit: false,
-		});
-	}
-	nameOnChange(e) {
+	function nameOnChange(e) {
 		const nameInput = e.target.value;
-		this.setState({
-			info: {
-				name: nameInput,
-				position: this.state.info.position,
-				intro: this.state.info.intro,
-			},
+		setInfo({
+			name: nameInput,
+			position: info.position,
+			intro: info.intro,
 		});
 	}
-	positionOnChange(e) {
+	function positionOnChange(e) {
 		const positionInput = e.target.value;
-		this.setState({
-			info: {
-				name: this.state.info.name,
-				position: positionInput,
-				intro: this.state.info.intro,
-			},
+		setInfo({
+			name: info.name,
+			position: positionInput,
+			intro: info.intro,
 		});
 	}
-	introOnChange(e) {
+	function introOnChange(e) {
 		const introInput = e.target.value;
-		this.setState({
-			info: {
-				name: this.state.info.name,
-				position: this.state.info.position,
-				intro: introInput,
-			},
+		setInfo({
+			name: info.name,
+			position: info.position,
+			intro: introInput,
 		});
 	}
-	render() {
-		const defaultView = (
-			<div>
-				<button
-					className='edit btn'
-					id='intro-edit-btn'
-					onClick={this.editBtnClicked}
-				>
-					Edit
-				</button>
-				<p className='name'>{this.state.info.name}</p>
-				<p className='position'>{this.state.info.position}</p>
-				<p className='brief-intro'>{this.state.info.intro}</p>
-			</div>
-		);
-		const editView = (
-			<div>
-				<button
-					className='apply btn'
-					id='intro-apply-btn'
-					onClick={this.applyBtnClicked}
-				>
-					Apply
-				</button>
-				<p className='name'>
-					<input
-						type='text'
-						value={this.state.info.name}
-						onChange={this.nameOnChange}
-					/>
-				</p>
-				<p className='position'>
-					<input
-						type='text'
-						value={this.state.info.position}
-						onChange={this.positionOnChange}
-					/>
-				</p>
-				<p className='brief-intro'>
-					<textarea
-						onChange={this.introOnChange}
-						value={this.state.info.intro}
-						cols='80'
-						rows='7'
-					/>
-				</p>
-			</div>
-		);
-		return (
-			<div
-				className='intro top'
-				onMouseEnter={this.btnHover}
-				onMouseLeave={this.btnMouseLeave}
+	const defaultView = (
+		<div>
+			<button
+				className='edit btn'
+				id='intro-edit-btn'
+				onClick={() => setEditMode(true)}
 			>
-				{!this.state.edit ? defaultView : editView}
-			</div>
-		);
-	}
+				Edit
+			</button>
+			<p className='name'>{info.name}</p>
+			<p className='position'>{info.position}</p>
+			<p className='brief-intro'>{info.intro}</p>
+		</div>
+	);
+	const editView = (
+		<div>
+			<button
+				className='apply btn'
+				id='intro-apply-btn'
+				onClick={() => setEditMode(false)}
+			>
+				Apply
+			</button>
+			<p className='name'>
+				<input type='text' value={info.name} onChange={nameOnChange} />
+			</p>
+			<p className='position'>
+				<input
+					type='text'
+					value={info.position}
+					onChange={positionOnChange}
+				/>
+			</p>
+			<p className='brief-intro'>
+				<textarea
+					onChange={introOnChange}
+					value={info.intro}
+					cols='80'
+					rows='7'
+				/>
+			</p>
+		</div>
+	);
+	return (
+		<div
+			className='intro top'
+			onMouseEnter={btnHover}
+			onMouseLeave={btnMouseLeave}
+		>
+			{!editMode ? defaultView : editView}
+		</div>
+	);
 }
 
 export default Intro;
